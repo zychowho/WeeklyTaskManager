@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFrameController">
    <children>
-      <SplitPane dividerPositions="0.2276785714285714" prefHeight="540.0" prefWidth="942.0">
+      <SplitPane dividerPositions="0.2276785714285714" prefHeight="540.0" prefWidth="942.0"> 	
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #37251b;">
                <children>
-                  <Label layoutX="41.0" layoutY="215.0" text="paul@vincent0801" textFill="WHITE">
+                  <Label fx:id="labelUser" layoutX="41.0" layoutY="215.0" text="paul@vincent0801" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -27,8 +27,8 @@
                         <Image url="@../../../../Downloads/278548737_1387153305062249_3396615157410237256_n-modified.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="40.0" layoutY="489.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Logout" textFill="WHITE" />
-                  <Button layoutX="41.0" layoutY="455.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Update Account" textFill="WHITE" />
+                  <Button fx:id="btnLogout" layoutX="40.0" layoutY="489.0" mnemonicParsing="false" onAction="#callLogoutFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Logout" textFill="WHITE" />
+                  <Button fx:id="btnUpdateUser" layoutX="41.0" layoutY="455.0" mnemonicParsing="false" onAction="#callUpdateUserFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Update Account" textFill="WHITE" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="82.0">
@@ -38,7 +38,7 @@
                         <Image url="@../../../../Downloads/Premium%20Vector%20_%20Abstract%20splashed%20watercolor%20textured%20background.jpg" />
                      </image>
                   </ImageView>
-                  <Button layoutX="686.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8f7557;" text="X" textFill="WHITE" />
+                  <Button fx:id="btnClose" layoutX="686.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: #8f7557;" text="X" textFill="WHITE" />
                   <Button layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: #8f7557;" text="&lt;" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
