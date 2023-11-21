@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFrameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="1109.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFrameController">
    <children>
-      <SplitPane dividerPositions="0.2276785714285714" prefHeight="540.0" prefWidth="942.0"> 	
+      <SplitPane dividerPositions="0.1779783393501805" prefHeight="616.0" prefWidth="1109.0"> 	
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #37251b;">
                <children>
-                  <Label fx:id="labelUser" layoutX="41.0" layoutY="215.0" text="paul@vincent0801" textFill="WHITE">
+                  <Label fx:id="labelUsername" layoutX="66.0" layoutY="217.0" text="username" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -24,21 +24,21 @@
                   <Circle fill="#d2c1b0" layoutX="99.0" layoutY="127.0" radius="76.0" stroke="BLACK" strokeType="INSIDE" />
                   <ImageView fitHeight="151.0" fitWidth="152.0" layoutX="24.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/278548737_1387153305062249_3396615157410237256_n-modified.png" />
+                        <Image url="@../../../../Downloads/user_circle_icon_152504.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btnLogout" layoutX="40.0" layoutY="489.0" mnemonicParsing="false" onAction="#callLogoutFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Logout" textFill="WHITE" />
-                  <Button fx:id="btnUpdateUser" layoutX="41.0" layoutY="455.0" mnemonicParsing="false" onAction="#callUpdateUserFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Update Account" textFill="WHITE" />
+                  <Button fx:id="btnLogout" layoutX="39.0" layoutY="565.0" mnemonicParsing="false" onAction="#callLogoutFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Logout" textFill="WHITE" />
+                  <Button fx:id="btnUpdateUser" layoutX="39.0" layoutY="525.0" mnemonicParsing="false" onAction="#callUpdateUserFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Update Account" textFill="WHITE" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="82.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="585.0" prefWidth="807.0">
                <children>
-                  <ImageView fitHeight="540.0" fitWidth="730.0" layoutY="-2.0" pickOnBounds="true">
+                  <ImageView fitHeight="614.0" fitWidth="908.0" layoutY="-2.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../../../../Downloads/Premium%20Vector%20_%20Abstract%20splashed%20watercolor%20textured%20background.jpg" />
+                        <Image url="@../utility/BGImage.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btnClose" layoutX="686.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: #8f7557;" text="X" textFill="WHITE" />
+                  <Button fx:id="btnClose" layoutX="815.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: #8f7557;" text="X" textFill="WHITE" />
                   <Button layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: #8f7557;" text="&lt;" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -48,8 +48,8 @@
                      <font>
                         <Font size="14.0" />
                      </font></Text>
-                  <AnchorPane layoutX="14.0" layoutY="90.0" opacity="0.42" prefHeight="438.0" prefWidth="702.0" style="-fx-background-color: #d2c1b0;" />
-                  <Button layoutX="663.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8f7557;" text="_" textFill="WHITE" />
+                  <AnchorPane layoutX="14.0" layoutY="90.0" opacity="0.42" prefHeight="511.0" prefWidth="883.0" style="-fx-background-color: #d2c1b0;" />
+                  <Button layoutX="792.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8f7557;" text="_" textFill="WHITE" />
                </children></AnchorPane>
         </items>
       </SplitPane>

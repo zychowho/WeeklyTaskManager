@@ -77,7 +77,7 @@ public class SignUpPageController extends LoginPageController{
     		
     	}
     	else {
-			//errorMesage.setText("Please Complete the fields!");
+//			errorMesage.setText("Please Complete the fields!");
     	
 		}
     	

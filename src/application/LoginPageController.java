@@ -33,10 +33,10 @@ public class LoginPageController {
     @FXML
     private TextField inputUsername;
 	
-    int usID;
+     public static int usID = 0;
     
 	@FXML
-	public void callLoginFunc(ActionEvent event) {
+	public int callLoginFunc(ActionEvent event) {
 		
 		
 		
@@ -54,20 +54,20 @@ public class LoginPageController {
 				if (result.next()) {
 					errorMesage.setText("Login Successful!");
 					
-					try {
-						TimeUnit.SECONDS.sleep(5);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+//					delete this below if unnecessary
+//					try {
+//						TimeUnit.SECONDS.sleep(5);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
 					
 					nextScene(btnLogin,"Mainframe.fxml"); //Should open the mainframe.fxml
 					
-					//System.out.println(result.getInt("userID")); // return userID
+					System.out.println(result.getInt("userID")); // return userID
 					
-					var userId = result.getInt("userID"); // int
-					//return String.valueOf(userId);
-					userData(userId);
+					this.usID = result.getInt("userID"); // int
+						return this.usID;
 				} else {
 					errorMesage.setText("Incorrect Credentials!");
 				}
@@ -78,16 +78,12 @@ public class LoginPageController {
 		} else {
 			errorMesage.setText("Please input username or password!");
 		}
-		//return null;
+		return usID;
 		
 		
 	}
 	
 	public void nextScene(Button btn, String newFrom){
-//		tawagin nya yung mainframe.fxml yun na dapat naka display after login
-		
-		//Button btnLogin = new Button();
-		
 		btn.setOnMouseClicked(event ->{
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(newFrom));
             Parent root = null;
@@ -108,8 +104,7 @@ public class LoginPageController {
 	
     @FXML
     void callSignupFunc(ActionEvent event) {
-//    	pag niclick yung sign-upbtn dapat lalabas yung SignUpPage.fxml
-    	nextScene(btnSignUp,"SignupPage.fxml");// Open signup frame
+    	nextScene(btnSignUp,"SignupPage.fxml");
     	
     }
 	
@@ -119,11 +114,14 @@ public class LoginPageController {
     	stage.close();
     }
     
-   public void userData(int userID){
+
+//    Is this necessary? if not kindly delete
+    public int userData(int userID){
 	   
 	   System.out.println(userID);
 	//return userID;
-	   this.usID = userID;
+	   usID = userID;
+	   return usID;
 	   
    }
    

@@ -52,7 +52,7 @@
       </AnchorPane>
       <ImageView fitHeight="400.0" fitWidth="352.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../Downloads/Premium%20Vector%20_%20Abstract%20splashed%20watercolor%20textured%20background.jpg" />
+            <Image url="@../utility/BGImage.jpg" />
          </image>
       </ImageView>
       <Label layoutX="13.0" layoutY="143.0" prefHeight="35.0" prefWidth="329.0" text="Welcome to Weekly Task Manager">

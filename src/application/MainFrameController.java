@@ -22,7 +22,7 @@ public class MainFrameController extends LoginPageController {
     private Button btnUpdateUser;
 
     @FXML
-    private Label labelUser;
+    private Label labelUsername;
     
     public void fetchDataUser() {
     	
@@ -36,7 +36,7 @@ public class MainFrameController extends LoginPageController {
 
     @FXML
     void callUpdateUserFunc(ActionEvent event) {
-//    	System.out.println(this.usID);
+    	labelUsername.setText(String.valueOf(LoginPageController.usID));
     }
 
     @FXML
