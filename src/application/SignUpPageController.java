@@ -71,7 +71,7 @@ public class SignUpPageController extends LoginPageController{
 					this.nextScene(btnSubmit,"LoginPage.fxml"); //Should open the mainframe.fxml
 			} catch (SQLException e) {
 				e.printStackTrace();
-				//errorMesage.setText("Error in Database");
+//				errorMesage.setText("Error in Database");
 				//errorMesage.setText("DB error");
 			}
     		
@@ -90,15 +90,11 @@ public class SignUpPageController extends LoginPageController{
 	
     @FXML
    void callLoginFuncbtn(ActionEvent event) {
-//    	pag niclick yung sign-upbtn dapat lalabas yung LoginPage.fxml
-    	
     	this.nextScene(btnLogin,"LoginPage.fxml");
     }
 	
     @FXML
     void submitSignupFunc(ActionEvent event) {
-//    	dapat makakapacreate sya ng acc at masasave sa DB
-//    	dapat pag may account mareredirect sa login screen	
     	signUpData();
     }
     

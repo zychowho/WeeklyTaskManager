@@ -124,5 +124,10 @@ public class LoginPageController {
 	   return usID;
 	   
    }
+
+	public void initialize() {
+		// TODO Auto-generated method stub
+		System.out.println("Login test");
+	}
    
 }
