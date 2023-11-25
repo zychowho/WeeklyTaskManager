@@ -28,7 +28,8 @@ public class SignUpPageController extends LoginPageController{
     @FXML
     private Button btnSubmit;
     
-    private Label errorMesage;
+    @FXML
+    private Label lblerrorMessage;
 
     @FXML
     private TextField inputFirstname;
@@ -41,45 +42,48 @@ public class SignUpPageController extends LoginPageController{
 
     @FXML
     private TextField inputUsername;
+    
 	
     public void signUpData() {
     	 
     	if(!inputUsername.getText().isBlank() && !inputFirstname.getText().isBlank() && !inputLastname.getText().isBlank() && !inputPassword.getText().isBlank()) 
     	{
-    		Connection con = DatabaseManager.getConnection();
-    		
-    		String insertNewUser = "INSERT INTO useraccount(username,password,firstname,lastname) VALUES (?,?,?,?)";
-    		try {
-    			PreparedStatement stmt = con.prepareStatement(insertNewUser);
- 
-				stmt.setString(1, inputUsername.getText());
-				stmt.setString(2, inputPassword.getText());
-				stmt.setString(3, inputFirstname.getText());
-				stmt.setString(4, inputLastname.getText());
-    			
-				stmt.executeUpdate();
-				
-					//errorMesage.setText("Login Successful!");
-					
-					try {
-						TimeUnit.SECONDS.sleep(5);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					this.nextScene(btnSubmit,"LoginPage.fxml"); //Should open the mainframe.fxml
-			} catch (SQLException e) {
-				e.printStackTrace();
-//				errorMesage.setText("Error in Database");
-				//errorMesage.setText("DB error");
-			}
-    		
+
+    		if(ifUsernameExist(inputUsername.getText())) {
+    			lblerrorMessage.setText("Username already exist!");	
+    		}else {
+    			Connection con = DatabaseManager.getConnection();
+        		
+        		String insertNewUser = "INSERT INTO useraccount(username,password,firstname,lastname) VALUES (?,?,?,?)";
+	        		try {
+	        			PreparedStatement stmt = con.prepareStatement(insertNewUser);
+	     
+	    				stmt.setString(1, inputUsername.getText());
+	    				stmt.setString(2, inputFirstname.getText());
+	    				stmt.setString(3, inputLastname.getText());
+	    				stmt.setString(4, inputPassword.getText());
+	        			
+	    				stmt.executeUpdate();
+	    				
+	    					//errorMesage.setText("Login Successful!");
+	    					
+	    					try {
+	    						TimeUnit.SECONDS.sleep(5);
+	    					} catch (InterruptedException e) {
+	    						// TODO Auto-generated catch block
+	    						e.printStackTrace();
+	    					}
+	    					
+	    					this.nextScene(btnSubmit,"LoginPage.fxml"); //Should open the mainframe.fxml
+	    			} catch (SQLException e) {
+	    				e.printStackTrace();
+	    				lblerrorMessage.setText("Error in Database");
+	    			}	
+    		}    	    
+    		    		
+    	} else {
+			lblerrorMessage.setText("Please complete fields!");	
     	}
-    	else {
-//			errorMesage.setText("Please Complete the fields!");
-    	
-		}
     	
     }
 	@FXML
@@ -98,4 +102,21 @@ public class SignUpPageController extends LoginPageController{
     	signUpData();
     }
     
+    public boolean ifUsernameExist(String username) {
+    	
+    	try {
+	    	Connection con = DatabaseManager.getConnection();
+			String verifyUsername = "SELECT * FROM useraccount WHERE username = ?";
+		  	PreparedStatement ps = con.prepareStatement(verifyUsername);
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			return rs.next();
+		
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+	    }
+
+    }
 }

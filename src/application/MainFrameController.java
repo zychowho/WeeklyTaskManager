@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 //import javafx.stage.PopupWindow;
@@ -23,7 +24,13 @@ import javafx.stage.StageStyle;
 public class MainFrameController extends LoginPageController {
 
     @FXML
-    private Button btnLogout, btnClose;
+    private Button btnClose;
+
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    private Button btnMinimize;
 
     @FXML
     private Button btnUpdateUser;
@@ -93,8 +100,15 @@ public class MainFrameController extends LoginPageController {
 		});
     }
 
+	
     @FXML
-    void closeApp(ActionEvent event) {
+	public void minimizeFunc(ActionEvent event) {
+		Stage stage = (Stage) btnMinimize.getScene().getWindow();
+		stage.setIconified(true);
+	}
+    
+    @FXML
+    public void closeAppFunc(ActionEvent event) {
     	Stage stage = (Stage) btnClose.getScene().getWindow();
     	stage.close();
     }

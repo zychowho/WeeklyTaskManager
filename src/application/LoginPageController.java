@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.sql.Connection;
@@ -94,7 +95,8 @@ public class LoginPageController {
 					e.printStackTrace();
 				}
             Stage stage = (Stage) btn.getScene().getWindow();
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root, 1800, 850);
+            stage.setMaximized(true);
             stage.setScene(scene);
 		});
 		
@@ -125,7 +127,12 @@ public class LoginPageController {
 	   
    }
 
-	public void initialize() {
+//	public void initialize() {
+//		// TODO Auto-generated method stub
+//		System.out.println("Login test");
+//	}
+
+	public void initialize(URL url, ResourceBundle rb) {
 		// TODO Auto-generated method stub
 		System.out.println("Login test");
 	}
