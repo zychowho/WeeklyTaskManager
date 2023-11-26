@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.DropdownButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Title:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="15.0" text="Finish Studies" />
+      <Label layoutX="15.0" layoutY="34.0" text="Description:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextFlow layoutX="17.0" layoutY="56.0" prefHeight="187.0" prefWidth="152.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." wrappingWidth="150.66369557380676" />
+         </children>
+      </TextFlow>
+      <Label layoutX="11.0" layoutY="233.0" text="Date:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="253.0" prefHeight="18.0" prefWidth="125.0" text="Monday, Dec1, 2023" />
+      <Label layoutX="14.0" layoutY="271.0" text="Status:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <DropdownButton layoutX="24.0" layoutY="291.0" prefHeight="18.0" prefWidth="117.0">
+          <items>
+              <MenuItem text="On-going" />
+              <MenuItem text="Finished" />
+              <MenuItem text="Choice 3" />
+          </items>
+      </DropdownButton>
+   </children>
+</AnchorPane>

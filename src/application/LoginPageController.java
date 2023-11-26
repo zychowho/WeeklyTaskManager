@@ -95,7 +95,7 @@ public class LoginPageController {
 					e.printStackTrace();
 				}
             Stage stage = (Stage) btn.getScene().getWindow();
-            Scene scene = new Scene(root, 1800, 850);
+            Scene scene = new Scene(root);
             stage.setMaximized(true);
             stage.setScene(scene);
 		});
