@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.DropdownButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="Box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="157.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TaskCardController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Title:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
+      <Label />
+      <Label text="Title:" />
+      <Label fx:id="labelTitle" text="Create Project">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
-      <Label layoutX="51.0" layoutY="15.0" text="Finish Studies" />
-      <Label layoutX="15.0" layoutY="34.0" text="Description:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextFlow layoutX="17.0" layoutY="56.0" prefHeight="187.0" prefWidth="152.0">
+      <Label text="Description:" />
+      <TextFlow prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." wrappingWidth="150.66369557380676" />
+            <Text fx:id="labelDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="79.98307228088379" />
          </children>
       </TextFlow>
-      <Label layoutX="11.0" layoutY="233.0" text="Date:">
+      <Label text="Date:" />
+      <Label fx:id="labelDate" text="2023-11-27">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <Label text="Time:" />
+      <Label text="5:45 PM">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <Label text="Status:" />
+      <Label text="Not Started">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <Label>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="117.0" style="-fx-background-color: #8f7557;" text="Update" textFill="WHITE" />
+      <Label>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font size="10.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="253.0" prefHeight="18.0" prefWidth="125.0" text="Monday, Dec1, 2023" />
-      <Label layoutX="14.0" layoutY="271.0" text="Status:">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <DropdownButton layoutX="24.0" layoutY="291.0" prefHeight="18.0" prefWidth="117.0">
-          <items>
-              <MenuItem text="On-going" />
-              <MenuItem text="Finished" />
-              <MenuItem text="Choice 3" />
-          </items>
-      </DropdownButton>
+      <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: #8f7557;" text="Delete" textFill="WHITE" />
    </children>
-</AnchorPane>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" />
+   </padding>
+</VBox>

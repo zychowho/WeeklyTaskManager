@@ -29,11 +29,11 @@
                   <Button fx:id="btnLogout" layoutX="42.0" layoutY="779.0" mnemonicParsing="false" onAction="#callLogoutFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Logout" textFill="WHITE" />
                   <Button fx:id="btnUpdateUser" layoutX="42.0" layoutY="739.0" mnemonicParsing="false" onAction="#callUpdateUserFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Update Account" textFill="WHITE" />
                   <Button layoutX="40.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Add Task" textFill="WHITE" />
-                  <Button layoutX="41.0" layoutY="328.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Weekly View" textFill="WHITE" />
-                  <Button fx:id="btnUpdateUser111" layoutX="41.0" layoutY="372.0" mnemonicParsing="false" onAction="#callUpdateUserFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Monthly View" textFill="WHITE" />
+                  <Button fx:id="btnWeeklyView" layoutX="41.0" layoutY="328.0" mnemonicParsing="false" onAction="#callWeeklyViewFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Weekly View" textFill="WHITE" />
+                  <Button fx:id="btnMonthlyView" layoutX="41.0" layoutY="372.0" mnemonicParsing="false" onAction="#callMonthlyViewFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Monthly View" textFill="WHITE" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="846.0" prefWidth="1447.0" />
+          <AnchorPane fx:id="ShowPane" minHeight="0.0" minWidth="0.0" prefHeight="846.0" prefWidth="1447.0" />
         </items>
       </SplitPane>
    </children>
