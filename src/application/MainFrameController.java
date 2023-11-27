@@ -23,14 +23,14 @@ import javafx.stage.StageStyle;
 
 public class MainFrameController extends LoginPageController {
 
-    @FXML
-    private Button btnClose;
+//    @FXML
+//    private Button btnClose;
 
     @FXML
     private Button btnLogout;
 
-    @FXML
-    private Button btnMinimize;
+//    @FXML
+//    private Button btnMinimize;
 
     @FXML
     private Button btnUpdateUser;
@@ -43,7 +43,6 @@ public class MainFrameController extends LoginPageController {
     
     
     public void initialize() {
-//		System.out.println("MainFrame");
 		fetchDataUser();
 		labelUsername.setText("@" + userName);
 	}
@@ -101,17 +100,17 @@ public class MainFrameController extends LoginPageController {
     }
 
 	
-    @FXML
-	public void minimizeFunc(ActionEvent event) {
-		Stage stage = (Stage) btnMinimize.getScene().getWindow();
-		stage.setIconified(true);
-	}
-    
-    @FXML
-    public void closeAppFunc(ActionEvent event) {
-    	Stage stage = (Stage) btnClose.getScene().getWindow();
-    	stage.close();
-    }
+//    @FXML
+//	public void minimizeFunc(ActionEvent event) {
+//		Stage stage = (Stage) btnMinimize.getScene().getWindow();
+//		stage.setIconified(true);
+//	}
+//    
+//    @FXML
+//    public void closeAppFunc(ActionEvent event) {
+//    	Stage stage = (Stage) btnClose.getScene().getWindow();
+//    	stage.close();
+//    }
 
 	
 
