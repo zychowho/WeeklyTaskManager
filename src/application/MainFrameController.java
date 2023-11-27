@@ -138,10 +138,6 @@ public class MainFrameController extends LoginPageController {
 //    	Stage stage = (Stage) btnClose.getScene().getWindow();
 //    	stage.close();
 //    }
-    @FXML
-    void callMonthlyViewFunc(ActionEvent event) {
-
-    }
 
     @FXML
     void callAddTaskFunc(MouseEvent event) {
