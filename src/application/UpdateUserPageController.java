@@ -3,6 +3,7 @@ package application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -10,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 
@@ -28,6 +30,9 @@ public class UpdateUserPageController extends MainFrameController {
     
     @FXML
     private Button btnSave,btnCancel;
+    
+    @FXML
+    //public Label labelUsername;
 
     public void initialize() {
 //    	System.out.println("UPDATE USER");
@@ -70,7 +75,27 @@ public class UpdateUserPageController extends MainFrameController {
 		}
 		
 		//nextScene(btnSave,"MainFrame.fxml");
-		rfreshScene();
+		//rfreshScene();
+		//MainFrameController.initialize();
+		
+		//initialize();
+		//this.labelUsername.setText(inputFirstName.getText());
+		
+		//nextScene(btnSave,"Mainframe.fxml");
+		try {
+		    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFrame.fxml"));
+		    Parent root1 = (Parent) fxmlLoader.load();
+		    Stage stage = new Stage();
+		    stage.initModality(Modality.APPLICATION_MODAL);
+		    stage.initStyle(StageStyle.UNDECORATED);
+		    //stage.setTitle("");
+		    stage.setMaximized(true);
+		    stage.setScene(new Scene(root1));  
+		    stage.show();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
     }
     
     @FXML

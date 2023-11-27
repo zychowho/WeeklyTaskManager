@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 //import javafx.stage.PopupWindow;
@@ -26,6 +27,10 @@ public class MainFrameController extends LoginPageController {
 //    @FXML
 //    private Button btnClose;
 
+
+    @FXML
+    public AnchorPane ShowPane;
+    
     @FXML
     private Button btnLogout;
 
@@ -33,18 +38,19 @@ public class MainFrameController extends LoginPageController {
 //    private Button btnMinimize;
 
     @FXML
-    private Button btnUpdateUser;
+    private Button btnUpdateUser, btnWeellyView;
 
     @FXML
-    private Label labelUsername;
+    public Label labelUsername;
     
     public static String userName,firstName,lastName,passWord;
 
     
     
-    public void initialize() {
+    public void initialize() throws Exception {
 		fetchDataUser();
-		labelUsername.setText("@" + userName);
+		labelUsername.setText("@" + firstName);
+		showInAnchorPane("WeeklyViewPage.fxml");
 	}
     
     public void fetchDataUser() {
@@ -76,9 +82,27 @@ public class MainFrameController extends LoginPageController {
     }
 
     @FXML
-    void callUpdateUserFunc(ActionEvent event) {
-    	newFormPopUp();
+    void callUpdateUserFunc(ActionEvent event) throws Exception {
+    	//newFormPopUp();
+    	showInAnchorPane("UpdateUserPage.fxml");
+		//Scene scene = new Scene(root);
     }
+    
+    @FXML
+    void callMonthlyViewFunc(ActionEvent event) throws Exception {
+    	showInAnchorPane("MonthlyViewPage.fxml");
+    }
+    
+    @FXML
+    void callWeeklyViewFunc(ActionEvent event) throws Exception {
+    	showInAnchorPane("WeeklyViewPage.fxml");
+    }
+    
+     void showInAnchorPane(String fxmlName) throws Exception
+     {
+    	 AnchorPane pane  = FXMLLoader.load(getClass().getResource(fxmlName));
+     	ShowPane.getChildren().setAll(pane);
+     }
     
     public void newFormPopUp() {
     	btnUpdateUser.setOnMouseClicked(event ->{
