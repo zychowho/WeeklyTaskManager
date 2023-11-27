@@ -28,6 +28,9 @@ public class MainFrameController extends LoginPageController {
 
     @FXML
     private Button btnLogout;
+    
+    @FXML
+    private Button btnAddTask;
 
 //    @FXML
 //    private Button btnMinimize;
@@ -88,7 +91,7 @@ public class MainFrameController extends LoginPageController {
     		    Stage stage = new Stage();
     		    stage.initModality(Modality.APPLICATION_MODAL);
     		    stage.initStyle(StageStyle.UNDECORATED);
-    		    stage.setTitle("ABC");
+//    		    stage.setTitle("ABC");
     		    stage.setScene(new Scene(root1));  
     		    stage.show();
     		}
@@ -111,7 +114,27 @@ public class MainFrameController extends LoginPageController {
 //    	Stage stage = (Stage) btnClose.getScene().getWindow();
 //    	stage.close();
 //    }
+    @FXML
+    void callMonthlyViewFunc(ActionEvent event) {
 
+    }
+
+    @FXML
+    void callAddTaskFunc(MouseEvent event) {
+		try {
+		    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddTaskPage.fxml"));
+		    Parent root1 = (Parent) fxmlLoader.load();
+		    Stage stage = new Stage();
+		    stage.initModality(Modality.APPLICATION_MODAL);
+		    stage.initStyle(StageStyle.UNDECORATED);
+//		    stage.setTitle("ABC");
+		    stage.setScene(new Scene(root1));  
+		    stage.show();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}		
+    }
 	
 
 }

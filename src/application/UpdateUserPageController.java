@@ -62,7 +62,7 @@ public class UpdateUserPageController extends MainFrameController {
 			stmt.setString(5, inputUserID.getText());
 			
 			stmt.executeUpdate();
-	    	Stage stage = (Stage) btnCancel.getScene().getWindow();
+	    	Stage stage = (Stage) btnSave.getScene().getWindow();
 	    	stage.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
