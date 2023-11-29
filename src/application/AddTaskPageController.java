@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.concurrent.TimeUnit;
 
 import javafx.collections.FXCollections;
@@ -45,12 +46,20 @@ public class AddTaskPageController extends MainFrameController  {
         		"46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"	);
         ObservableList<String> indicators = FXCollections.observableArrayList("AM","PM");
         
-        
-        
     	btnComboBoxStatus.setItems(Statuslist);
     	btnHr.setItems(hour);
     	btnMin.setItems(min);
     	btnIndicator.setItems(indicators);
+    	
+    	
+    	// This is to disable previous day!
+    	selectDateButton.setDayCellFactory(param -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                setDisable(empty || date.compareTo(LocalDate.now()) < 0 );
+            }
+        });
 	}
     
     @FXML
