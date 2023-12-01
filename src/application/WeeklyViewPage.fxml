@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -26,7 +27,7 @@
          </font>
       </Button>
       <Button layoutX="75.0" layoutY="58.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: #8f7557;" text="&gt;" textFill="WHITE" />
-      <Text layoutX="134.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="November 19, 2023 - November 25, 2023" wrappingWidth="276.84100341796875">
+      <Text fx:id="labeldateShow" layoutX="134.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="November 19, 2023 - November 25, 2023" textAlignment="CENTER" wrappingWidth="276.84100341796875">
          <font>
             <Font size="14.0" />
          </font>
@@ -48,32 +49,32 @@
                   </ScrollPane>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
                      <content>
-                        <VBox prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
+                        <VBox fx:id="VboxMonday" prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
                      </content>
                   </ScrollPane>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
                      <content>
-                        <VBox prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
+                        <VBox fx:id="VboxTuesday" prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
                      </content>
                   </ScrollPane>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
                      <content>
-                        <VBox prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
+                        <VBox fx:id="VboxWednesday" prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
                      </content>
                   </ScrollPane>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
                      <content>
-                        <VBox prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
+                        <VBox fx:id="VboxThursday" prefHeight="654.0" prefWidth="178.0" style="-fx-background-color: #d2c1b0;" />
                      </content>
                   </ScrollPane>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
                      <content>
-                        <VBox prefHeight="654.0" prefWidth="179.0" style="-fx-background-color: #d2c1b0;" />
+                        <VBox fx:id="VboxFriday" prefHeight="654.0" prefWidth="179.0" style="-fx-background-color: #d2c1b0;" />
                      </content>
                   </ScrollPane>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
                      <content>
-                        <VBox prefHeight="654.0" prefWidth="179.0" style="-fx-background-color: #d2c1b0;" />
+                        <VBox fx:id="VboxSaturday" prefHeight="654.0" prefWidth="179.0" style="-fx-background-color: #d2c1b0;" />
                      </content>
                   </ScrollPane>
                </children>
@@ -111,5 +112,7 @@
             </Label>
          </children>
       </AnchorPane>
+      <DatePicker fx:id="DTpickerBar" layoutX="404.0" layoutY="59.0" prefHeight="25.0" prefWidth="99.0" />
+      <Button fx:id="btnSearchDateWeek" layoutX="520.0" layoutY="60.0" mnemonicParsing="false" onAction="#CallFuncSearchWeek" text="Button" />
    </children>
 </AnchorPane>
