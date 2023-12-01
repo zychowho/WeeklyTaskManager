@@ -6,6 +6,15 @@ public class Task {
 	private String description;
 	private String taskDate;
 	private String status;
+	private String taskID;
+	
+	public String getTaskID() {
+		return taskID;
+	}
+	public void setTaskID(String taskID) {
+		this.taskID = taskID;
+	}
+	
 	
 	public String getTitle() {
 		return title;
