@@ -41,7 +41,7 @@ public class AddTaskPageController extends MainFrameController  {
     public void initialize() {
         ObservableList<String> Statuslist = FXCollections.observableArrayList("Not Started","On-going","Finished");
         ObservableList<String> hour = FXCollections.observableArrayList("0","1","2","3","4","5","6","7","8","9","10","11","12");
-        ObservableList<String> min = FXCollections.observableArrayList("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20", 
+        ObservableList<String> min = FXCollections.observableArrayList("00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20", 
         		"21","22","23","24","25","26","27","28","29","30","31","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45",
         		"46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"	);
         ObservableList<String> indicators = FXCollections.observableArrayList("AM","PM");
@@ -84,6 +84,7 @@ public class AddTaskPageController extends MainFrameController  {
         	String min = btnMin.getSelectionModel().getSelectedItem().toString();
         	String indicator = btnIndicator.getSelectionModel().getSelectedItem().toString();
         	String time = (hr+ ":"+ min +" "+ indicator).toString();
+        	System.out.println(time);
        	 	String date = selectDateButton.getValue().toString();
     		Connection con = DatabaseManager.getConnection();
         		
@@ -93,7 +94,7 @@ public class AddTaskPageController extends MainFrameController  {
 	     
 	    		stmt.setString(1, String.valueOf(MainFrameController.usID));
 	    		stmt.setString(2, inputTitle.getText());
-	    		stmt.setString(3, inputDescription.getText());
+	    		stmt.setString(3, inputDescription.getText());	
 	    		stmt.setString(4, date);
 	    		stmt.setString(5, time);
 	    		stmt.setString(6, stats);

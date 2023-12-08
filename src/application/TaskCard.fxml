@@ -49,7 +49,7 @@
          </padding>
       </Label>
       <Label text="Time:" />
-      <Label text="5:45 PM">
+      <Label fx:id="labelTime" text="5:45 PM">
          <padding>
             <Insets left="20.0" />
          </padding>
@@ -65,7 +65,7 @@
             <Insets left="20.0" />
          </padding>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="117.0" style="-fx-background-color: #8f7557;" text="Update" textFill="WHITE" />
+      <Button fx:id="btnUpdateData" mnemonicParsing="false" onAction="#CallFuncUpdate" prefHeight="50.0" prefWidth="117.0" style="-fx-background-color: #8f7557;" text="Update" textFill="WHITE" />
       <Label>
          <padding>
             <Insets left="20.0" />

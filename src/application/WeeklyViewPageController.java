@@ -67,21 +67,24 @@ public class WeeklyViewPageController extends MainFrameController {
     //static TemporalAdjuster test  = TemporalAdjuster.ofDateAdjuster(date ->date(2));
 
     @FXML
-    void closeAppFunc(ActionEvent event) {
-
-    }
-
+	public void minimizeFunc(ActionEvent event) {
+//		Stage stage = (Stage) btnMinimize.getScene().getWindow();
+//		stage.setIconified(true);
+	}
+  
     @FXML
-    void minimizeFunc(ActionEvent event) {
-
-    }
-    
+    public void closeAppFunc(ActionEvent event) {
+//  	Stage stage = (Stage) btnClose.getScene().getWindow();
+//  	stage.close();
+  }
     
     public void initialize() {
     	
     	//ShowTask();
     	//DatePicker DTpickertest = new DatePicker();
     	//DTpickertest.ge
+    	
+    	
     	int year = 0, month = 0, day = 0;
     	LocalDate localDate = LocalDate.now();
     	String cdate = localDate.toString();
@@ -233,335 +236,59 @@ public class WeeklyViewPageController extends MainFrameController {
     	
     }
     
-    public static String GetFullWeekDatebtn() {
-    	String str = null;
-    	
-  
-    	
-    	//GetTaskFromFullWeek(year,month,day);
-//    	btnTest.setOnMouseClicked(event ->{
-//				
-//				
-//			
-//		
-//			});
-    	return str;
-    }
     
    public static String[] GetFullWeekDate(int year, int month, int day) {
 	   
-//	   int year = 2024;
-//   	int month = 1;
-//   	int day = 1;
-   	
-   	LocalDate localDate = LocalDate.of(year, month, day);
-	    java.time.DayOfWeek dayOfWeeks = localDate.getDayOfWeek();
-	   //String dayOfWeeks = new SimpleDateFormat("EEEE").format(localDate);
-	    
-	   LocalDate localDateweek = LocalDate.of(year, month, day); // assuming we picked 18 September 2014
-      int weekNumber = localDateweek.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
-      //int datestring = localDateweek.get(IsoFields.);
-      
-      int enteredWeekNumber = weekNumber;
-      int enteredYear = year;
-     
-      String DLastDateOfMonth = null;
-      String DSunday = null,DMonday = null,DTuesday= null,DWednesday= null,DThursday= null,DFriday= null,DSaturday= null;
-      
-      LocalDate Sunday = LocalDate.now()
-              .withYear(enteredYear)
-              .with(ChronoField.ALIGNED_WEEK_OF_YEAR, enteredWeekNumber)
-			   .with(TemporalAdjusters.previous(DayOfWeek.SUNDAY));
-  			   DSunday = Sunday.toString();
-      
-  	   String[] arrSunday = 	DSunday.split("-");
-  	   
-  	   int sunYear = Integer.valueOf(arrSunday[0].toString());
-	   int sunMonth = Integer.valueOf(arrSunday[1].toString());
-	   int sunDay = Integer.valueOf(arrSunday[2].toString());
+	   String[] weekdates = new String[7];
 	   
-	   LocalDate localDateweeklast = LocalDate.of(sunYear, sunMonth, sunDay); // assuming we picked 18 September 2014
-      int weekNumberlast = localDateweeklast.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
-  			  
-  	   LocalDate LastDateOfMonth = LocalDate.now()
-  	            .withYear(sunYear)
-  	            .with(ChronoField.ALIGNED_WEEK_OF_YEAR, weekNumberlast)
-  				.with(TemporalAdjusters.lastDayOfMonth());
-  	   			DLastDateOfMonth = LastDateOfMonth.toString();
-  	   			
-  	   			
-  	   				
-  	   		String[] arrLastDate = 	DLastDateOfMonth.split("-");
-  	   		
-  	   
-  	   
-  	   int LastDYear = Integer.valueOf(arrLastDate[0].toString());
-	   int LastDMonth = Integer.valueOf(arrLastDate[1].toString());
-	   int LastDDay = Integer.valueOf(arrLastDate[2].toString());
+	   LocalDate currentDate = LocalDate.of(year, month, day);//YYYY-mm-dd
+       DayOfWeek today = currentDate.getDayOfWeek();
+       //LocalDate sunday = currentDate.minusDays(today.getValue() - DayOfWeek.SUNDAY.getValue());
+       LocalDate sunday = currentDate.with(ChronoField.DAY_OF_WEEK, 1);
+
+       System.out.println(currentDate.toString());
+       System.out.println(today.toString());
+       System.out.println(sunday.toString());
+       
+       
+       
+       for (int i = 0; i < DayOfWeek.values().length; i++) {
+           LocalDate days = sunday.plusDays(i-1);
+           System.out.println(days.getDayOfWeek() + ": " + days);
+           weekdates[i] = days.toString();
+           
+       }
 	   
-	   int mon = 0,tue = 0,wed = 0,thur = 0,fri = 0,sat =0;
-	   int Mmon = 0,Mtue = 0,Mwed = 0,Mthur = 0,Mfri = 0,Msat =0;
-	   int Ymon = 0,Ytue = 0,Ywed = 0,Ythur = 0,Yfri = 0,Ysat =0;
-	   
-	   
-	   //monday
-	   if(sunDay < LastDDay) 
-	   {
-		   mon = (sunDay+1);
-		   Mmon = LastDMonth;
-		   Ymon = sunYear;
-	   }
-	   else if(sunDay == LastDDay) 
-	   {
-		   mon = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mmon = LastDMonth+1;
-			   Ymon = sunYear;
-		   }
-		   else {Mmon =1; Ymon = sunYear+1;}
-		}
-	   //tuesday
-	   if(mon < LastDDay) {tue = (mon+1);  Mtue = Mmon; Ytue = Ymon;}
-	   else if(mon == LastDDay) 
-	   {
-		   tue = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mtue = LastDMonth+1;
-			   Ytue = Ymon;
-		   }
-		   else {Mtue =1; Ytue = Ymon+1;}
-		   }
-	   //wednesday
-	   if(tue < LastDDay) {wed =(tue +1); Mwed = Mtue; Ywed = Ytue;}
-	   else if(tue == LastDDay)
-	   {
-		   wed = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mwed = Mtue+1;
-			   Ywed = Ytue;
-		   }
-		   else {Mwed =1; Ywed = Ytue+1;}
-		   
-		}
-	   //thursday
-	   if(wed < LastDDay) {thur =(wed +1); Mthur = Mwed; Ythur =Ywed;} 
-	   else if(wed == LastDDay) 
-	   {
-		   thur = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mthur = Mwed+1;
-			   Ythur =Ywed;
-		   }
-		   else {Mthur =1; Ythur =Ywed+1;}
-		   }
-	   //friday
-	   if(thur < LastDDay) {fri =(thur +1);  Mfri = Mthur; Yfri =Ythur;}
-	   else if(thur == LastDDay) 
-	   {
-		   fri = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mfri = Mthur+1;
-			   Yfri =Ythur;
-		   }
-		   else {Mfri =1; Yfri =Ythur+1;}
-		   
-	   }
-	   //saturday
-	   if(fri < LastDDay) {sat =(fri +1); Msat = Mfri; Ysat = Yfri;}
-	   else if(fri == LastDDay) 
-	   {
-		   sat = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Msat = Mfri+1;
-			   Ysat = Yfri;
-		   }
-		   else {Msat =1; Ysat = Yfri+1;}
-		}
-  
-	   
-	   
-//	   System.out.println(dayOfWeeks + "  :  "+ DSunday + "  :  "+DLastDateOfMonth);
-//	   System.out.println("Sunday" + DSunday);
-//	   System.out.println("Monday" +" : "+ mon +" : "+ Mmon +" : "+Ymon);
-//	   System.out.println("Tuesday" +" : "+ tue +" : "+ Mtue +" : "+Ytue);
-//	   System.out.println("Wednesday" +" : "+ wed +" : "+ Mwed+" : "+Ywed);
-//	   System.out.println("Thursday" +" : "+ thur +" : "+ Mthur+" : "+Ythur);
-//	   System.out.println("Friday" +" : "+ fri +" : "+ Mfri+" : "+Yfri);
-//	   System.out.println("Saturday" +" : "+ sat +" : "+ Msat+" : "+Ysat);
-	   
-	   DMonday = Ymon+"-"+Mmon+"-"+mon;
-	   DTuesday = Ytue+"-"+Mtue+"-"+tue;
-	   DWednesday = Ywed+"-"+Mwed+"-"+wed;
-	   DThursday = Ythur+"-"+Mthur+"-"+thur;
-	   DFriday = Yfri+"-"+Mfri+"-"+fri;
-	   DSaturday = Ysat+"-"+Msat+"-"+sat;
-        System.out.println(DSunday +" : "+DMonday+" : "+DTuesday+" : "+DWednesday+" : "+DThursday+" : "+DFriday+" : "+DSaturday);
-        
-        String[] weekdates = {DSunday,DMonday,DTuesday,DWednesday,DThursday,DFriday,DSaturday};
+//       System.out.println(weekdates[0]);
+//       System.out.println(weekdates[1]);
+//       System.out.println(weekdates[2]);
+//       System.out.println(weekdates[3]);
+//       System.out.println(weekdates[4]);
+//       System.out.println(weekdates[5]);
+//       System.out.println(weekdates[6]);
+       
         
 		return weekdates;
     	
     }
     void ShowTask() {
     	
-    	int year = 2024;
-    	int month = 1;
-    	int day = 1;
-    	
-    	LocalDate localDate = LocalDate.of(year, month, day);
- 	    java.time.DayOfWeek dayOfWeeks = localDate.getDayOfWeek();
- 	   //String dayOfWeeks = new SimpleDateFormat("EEEE").format(localDate);
- 	    
- 	   LocalDate localDateweek = LocalDate.of(year, month, day); // assuming we picked 18 September 2014
-       int weekNumber = localDateweek.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
-       //int datestring = localDateweek.get(IsoFields.);
-       
-       int enteredWeekNumber = weekNumber;
-       int enteredYear = year;
-      
-       String DLastDateOfMonth = null;
-       String DSunday = null,DMonday = null,DTuesday= null,DWednesday= null,DThursday= null,DFriday= null,DSaturday= null;
-       
-       LocalDate Sunday = LocalDate.now()
-               .withYear(enteredYear)
-               .with(ChronoField.ALIGNED_WEEK_OF_YEAR, enteredWeekNumber)
-			   .with(TemporalAdjusters.previous(DayOfWeek.SUNDAY));
-   			   DSunday = Sunday.toString();
-       
-   	   String[] arrSunday = 	DSunday.split("-");
-   	   
-   	   int sunYear = Integer.valueOf(arrSunday[0].toString());
-	   int sunMonth = Integer.valueOf(arrSunday[1].toString());
-	   int sunDay = Integer.valueOf(arrSunday[2].toString());
-	   
-	   LocalDate localDateweeklast = LocalDate.of(sunYear, sunMonth, sunDay); // assuming we picked 18 September 2014
-       int weekNumberlast = localDateweeklast.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
-   			  
-   	   LocalDate LastDateOfMonth = LocalDate.now()
-   	            .withYear(sunYear)
-   	            .with(ChronoField.ALIGNED_WEEK_OF_YEAR, weekNumberlast)
-   				.with(TemporalAdjusters.lastDayOfMonth());
-   	   			DLastDateOfMonth = LastDateOfMonth.toString();
-   	   			
-   	   			
-   	   				
-   	   		String[] arrLastDate = 	DLastDateOfMonth.split("-");
-   	   		
-   	   
-   	   
-   	   int LastDYear = Integer.valueOf(arrLastDate[0].toString());
-	   int LastDMonth = Integer.valueOf(arrLastDate[1].toString());
-	   int LastDDay = Integer.valueOf(arrLastDate[2].toString());
-	   
-	   int mon = 0,tue = 0,wed = 0,thur = 0,fri = 0,sat =0;
-	   int Mmon = 0,Mtue = 0,Mwed = 0,Mthur = 0,Mfri = 0,Msat =0;
-	   int Ymon = 0,Ytue = 0,Ywed = 0,Ythur = 0,Yfri = 0,Ysat =0;
-	   
-	   
-	   //monday
-	   if(sunDay < LastDDay) 
-	   {
-		   mon = (sunDay+1);
-		   Mmon = LastDMonth;
-		   Ymon = sunYear;
-	   }
-	   else if(sunDay == LastDDay) 
-	   {
-		   mon = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mmon = LastDMonth+1;
-			   Ymon = sunYear;
-		   }
-		   else {Mmon =1; Ymon = sunYear+1;}
-		}
-	   //tuesday
-	   if(mon < LastDDay) {tue = (mon+1);  Mtue = Mmon; Ytue = Ymon;}
-	   else if(mon == LastDDay) 
-	   {
-		   tue = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mtue = LastDMonth+1;
-			   Ytue = Ymon;
-		   }
-		   else {Mtue =1; Ytue = Ymon+1;}
-		   }
-	   //wednesday
-	   if(tue < LastDDay) {wed =(tue +1); Mwed = Mtue; Ywed = Ytue;}
-	   else if(tue == LastDDay)
-	   {
-		   wed = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mwed = Mtue+1;
-			   Ywed = Ytue;
-		   }
-		   else {Mwed =1; Ywed = Ytue+1;}
-		   
-		}
-	   //thursday
-	   if(wed < LastDDay) {thur =(wed +1); Mthur = Mwed; Ythur =Ywed;} 
-	   else if(wed == LastDDay) 
-	   {
-		   thur = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mthur = Mwed+1;
-			   Ythur =Ywed;
-		   }
-		   else {Mthur =1; Ythur =Ywed+1;}
-		   }
-	   //friday
-	   if(thur < LastDDay) {fri =(thur +1);  Mfri = Mthur; Yfri =Ythur;}
-	   else if(thur == LastDDay) 
-	   {
-		   fri = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Mfri = Mthur+1;
-			   Yfri =Ythur;
-		   }
-		   else {Mfri =1; Yfri =Ythur+1;}
-		   
-	   }
-	   //saturday
-	   if(fri < LastDDay) {sat =(fri +1); Msat = Mfri; Ysat = Yfri;}
-	   else if(fri == LastDDay) 
-	   {
-		   sat = 1;
-		   if(LastDMonth < 12) 
-		   {
-			   Msat = Mfri+1;
-			   Ysat = Yfri;
-		   }
-		   else {Msat =1; Ysat = Yfri+1;}
-		}
-   
-	   
-	   
-// 	   System.out.println(dayOfWeeks + "  :  "+ DSunday + "  :  "+DLastDateOfMonth);
-// 	   System.out.println("Sunday" + DSunday);
-// 	   System.out.println("Monday" +" : "+ mon +" : "+ Mmon +" : "+Ymon);
-// 	   System.out.println("Tuesday" +" : "+ tue +" : "+ Mtue +" : "+Ytue);
-//	   System.out.println("Wednesday" +" : "+ wed +" : "+ Mwed+" : "+Ywed);
-//	   System.out.println("Thursday" +" : "+ thur +" : "+ Mthur+" : "+Ythur);
-// 	   System.out.println("Friday" +" : "+ fri +" : "+ Mfri+" : "+Yfri);
-// 	   System.out.println("Saturday" +" : "+ sat +" : "+ Msat+" : "+Ysat);
- 	   
- 	   DMonday = Ymon+"-"+Mmon+"-"+mon;
- 	   DTuesday = Ytue+"-"+Mtue+"-"+tue;
- 	   DWednesday = Ywed+"-"+Mwed+"-"+wed;
-	   DThursday = Ythur+"-"+Mthur+"-"+thur;
-	   DFriday = Yfri+"-"+Mfri+"-"+fri;
- 	   DSaturday = Ysat+"-"+Msat+"-"+sat;
- 	   
+				    	LocalDate currentDate = LocalDate.of(2023, 11, 29);//YYYY-mm-dd
+				        DayOfWeek today = currentDate.getDayOfWeek();
+				        //LocalDate sunday = currentDate.minusDays(today.getValue() - DayOfWeek.SUNDAY.getValue());
+				        LocalDate sunday = currentDate.with(ChronoField.DAY_OF_WEEK, 1);
+				
+				        System.out.println(currentDate.toString());
+				        System.out.println(today.toString());
+				        System.out.println(sunday.toString());
+				        
+				        
+				        
+				        for (int i = 0; i < DayOfWeek.values().length; i++) {
+				            LocalDate day = sunday.plusDays(i-1);
+				            System.out.println(day.getDayOfWeek() + ": " + day);
+				        }
+				 	   
     	       }
     
     
@@ -589,6 +316,7 @@ public class WeeklyViewPageController extends MainFrameController {
 				 task.setTitle(result.getString("Title"));
 				 task.setDescription(result.getString("Description"));
 				 task.setTaskDate(result.getString("Date"));
+				 task.setTime(result.getString("Time"));
 				 task.setStatus(result.getString("Status"));
 				 lsSunday.add(task);
 				 
@@ -627,6 +355,7 @@ public class WeeklyViewPageController extends MainFrameController {
 				 task.setTitle(result.getString("Title"));
 				 task.setDescription(result.getString("Description"));
 				 task.setTaskDate(result.getString("Date"));
+				 task.setTime(result.getString("Time"));
 				 task.setStatus(result.getString("Status"));
 				 lsMonday.add(task);
 				 
@@ -664,6 +393,7 @@ public class WeeklyViewPageController extends MainFrameController {
 				 task.setTitle(result.getString("Title"));
 				 task.setDescription(result.getString("Description"));
 				 task.setTaskDate(result.getString("Date"));
+				 task.setTime(result.getString("Time"));
 				 task.setStatus(result.getString("Status"));
 				 lsTuesday.add(task);
 				 
@@ -701,6 +431,7 @@ public class WeeklyViewPageController extends MainFrameController {
 				 task.setTitle(result.getString("Title"));
 				 task.setDescription(result.getString("Description"));
 				 task.setTaskDate(result.getString("Date"));
+				 task.setTime(result.getString("Time"));
 				 task.setStatus(result.getString("Status"));
 				 lsWednesday.add(task);
 				 
@@ -738,6 +469,7 @@ public class WeeklyViewPageController extends MainFrameController {
 			 task.setTitle(result.getString("Title"));
 			 task.setDescription(result.getString("Description"));
 			 task.setTaskDate(result.getString("Date"));
+			 task.setTime(result.getString("Time"));
 			 task.setStatus(result.getString("Status"));
 			 lsThursday.add(task);
 			 
@@ -775,6 +507,7 @@ public class WeeklyViewPageController extends MainFrameController {
     			 task.setTitle(result.getString("Title"));
     			 task.setDescription(result.getString("Description"));
     			 task.setTaskDate(result.getString("Date"));
+    			 task.setTime(result.getString("Time"));
     			 task.setStatus(result.getString("Status"));
     			 lsFriday.add(task);
     			 
@@ -812,6 +545,7 @@ public class WeeklyViewPageController extends MainFrameController {
     			 task.setTitle(result.getString("Title"));
     			 task.setDescription(result.getString("Description"));
     			 task.setTaskDate(result.getString("Date"));
+    			 task.setTime(result.getString("Time"));
     			 task.setStatus(result.getString("Status"));
     			 lsSaturday.add(task);
     			 
@@ -827,14 +561,7 @@ public class WeeklyViewPageController extends MainFrameController {
         
     @FXML
    void CallFuncSearchWeek(ActionEvent event) {
-    	//DatePicker dt = new DatePicker();
-    	//dt = DTpickertest.getValue();
-    	
-    	//LocalDate localDate = DTpickerBar.getValue();
-    	//Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-    	//Date date = Date.from(instant);
-    	//System.out.println(localDate + " - "+instant+" - "+date);
-    		//String cdate = null;
+
     			
     			int year = 0, month = 0, day = 0;
     	    	LocalDate localDate = DTpickerBar.getValue();
@@ -866,5 +593,6 @@ public class WeeklyViewPageController extends MainFrameController {
     	    	labeldateShow.setText(dateGet[0] +"     -     "+dateGet[6]);
     	    	
     }
+    
 }
 

@@ -7,6 +7,7 @@ public class Task {
 	private String taskDate;
 	private String status;
 	private String taskID;
+	private String time;
 	
 	public String getTaskID() {
 		return taskID;
@@ -15,6 +16,12 @@ public class Task {
 		this.taskID = taskID;
 	}
 	
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	
 	public String getTitle() {
 		return title;
