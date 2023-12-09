@@ -8,42 +8,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="850.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainFrameController">
    <children>
-      <SplitPane dividerPositions="0.2276785714285714" prefHeight="540.0" prefWidth="942.0">
+      <SplitPane dividerPositions="0.12886199794026776"> 	
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #37251b;">
                <children>
-                  <Label layoutX="43.0" layoutY="180.0" text="paul@vincent0801" textFill="WHITE">
+                  <Label fx:id="labelUsername" layoutX="66.0" layoutY="217.0" text="Full Name" textFill="WHITE" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="66.0">
                      <font>
                         <Font size="14.0" />
-                     </font></Label>
-                  <Circle fill="#d2c1b0" layoutX="100.0" layoutY="91.0" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
-                  <ImageView fitHeight="151.0" fitWidth="152.0" layoutX="25.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     </font>
+                  </Label>
+                  <Circle fill="#d2c1b0" layoutX="99.0" layoutY="127.0" radius="76.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="151.0" fitWidth="152.0" layoutX="24.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../Downloads/eps10-brown-user-icon-or-logo-in-simple-flat-trendy-modern-style-isolated-on-white-background-free-vector-removebg-preview.png" />
+                        <Image url="@../../../../Downloads/user_circle_icon_152504.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="40.0" layoutY="489.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Logout" textFill="WHITE" />
-                  <Button layoutX="41.0" layoutY="455.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Update Account" textFill="WHITE" />
+                  <Button fx:id="btnLogout" layoutX="42.0" layoutY="779.0" mnemonicParsing="false" onAction="#callLogoutFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Logout" textFill="WHITE" />
+                  <Button fx:id="btnUpdateUser" layoutX="42.0" layoutY="739.0" mnemonicParsing="false" onAction="#callUpdateUserFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Update Account" textFill="WHITE" />
+                  <Button layoutX="40.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Add Task" textFill="WHITE" />
+                  <Button fx:id="btnWeeklyView" layoutX="41.0" layoutY="328.0" mnemonicParsing="false" onAction="#callWeeklyViewFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Weekly View" textFill="WHITE" />
+                  <Button fx:id="btnMonthlyView" layoutX="41.0" layoutY="372.0" mnemonicParsing="false" onAction="#callMonthlyViewFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Monthly View" textFill="WHITE" />
+                  <Button fx:id="btnAddTask" layoutX="40.0" layoutY="290.0" mnemonicParsing="false" onMouseClicked="#callAddTaskFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Add Task" textFill="WHITE" />
+                  <Button fx:id="btnWeeklyView" layoutX="41.0" layoutY="328.0" mnemonicParsing="false" onAction="#callWeeklyViewFunc" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #8f7557;" text="Weekly View" textFill="WHITE" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="82.0">
-               <children>
-                  <Button layoutX="686.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8f7557;" text="X" textFill="WHITE" />
-                  <Button layoutX="20.0" layoutY="58.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: #8f7557;" text="&lt;" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Button>
-                  <Button layoutX="75.0" layoutY="58.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="48.0" style="-fx-background-color: #8f7557;" text="&gt;" textFill="WHITE" />
-                  <Text layoutX="131.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="November 19, 2023 - November 25, 2023" wrappingWidth="276.84100341796875">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Text>
-                  <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="438.0" prefWidth="702.0" style="-fx-background-color: #d2c1b0;" />
-               </children></AnchorPane>
+          <AnchorPane fx:id="ShowPane" minHeight="0.0" minWidth="0.0" prefHeight="846.0" prefWidth="1447.0" />
         </items>
       </SplitPane>
    </children>

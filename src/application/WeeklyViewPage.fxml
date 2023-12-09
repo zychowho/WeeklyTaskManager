@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="843.0" prefWidth="1346.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WeeklyViewPageController">
+   <children>
+      <ImageView fitHeight="843.0" fitWidth="1347.0" layoutY="-2.0" pickOnBounds="true">
+         <image>
+            <Image url="@../utility/BGImage.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnClose" layoutX="1243.0" layoutY="22.0" mnemonicParsing="false" onAction="#closeAppFunc" style="-fx-background-color: #8f7557;" text="X" textFill="WHITE" />
+      <Text fx:id="labeldateShow" layoutX="313.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="November 19, 2023 - November 25, 2023" textAlignment="CENTER" wrappingWidth="276.84100341796875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnMinimize" layoutX="1216.0" layoutY="22.0" mnemonicParsing="false" onAction="#minimizeFunc" style="-fx-background-color: #8f7557;" text="_" textFill="WHITE" />
+      <AnchorPane layoutX="20.0" layoutY="107.0" opacity="0.85" prefHeight="685.0" prefWidth="1277.0" style="-fx-background-color: #d2c1b0;">
+         <children>
+            <Label layoutX="56.0" layoutY="8.0" text="Sunday">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox layoutX="14.0" layoutY="47.0" prefHeight="653.0" prefWidth="1276.0" style="-fx-background-color: #d2c1b0;">
+               <children>
+                  <ScrollPane prefHeight="622.0" prefWidth="212.0" style="-fx-background-color: #d2c1b0;">
+                     <content>
+                        <VBox fx:id="VboxSunday" prefHeight="657.0" prefWidth="178.0" spacing="15.0" style="-fx-background-color: #d2c1b0;" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
+                     <content>
+                        <VBox fx:id="VboxMonday" prefHeight="655.0" prefWidth="166.0" spacing="15.0" style="-fx-background-color: #d2c1b0;" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
+                     <content>
+                        <VBox fx:id="VboxTuesday" prefHeight="654.0" prefWidth="166.0" spacing="15.0" style="-fx-background-color: #d2c1b0;" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
+                     <content>
+                        <VBox fx:id="VboxWednesday" prefHeight="655.0" prefWidth="166.0" spacing="15.0" style="-fx-background-color: #d2c1b0;" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
+                     <content>
+                        <VBox fx:id="VboxThursday" prefHeight="655.0" prefWidth="166.0" spacing="15.0" style="-fx-background-color: #d2c1b0;" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
+                     <content>
+                        <VBox fx:id="VboxFriday" prefHeight="655.0" prefWidth="166.0" spacing="15.0" style="-fx-background-color: #d2c1b0;" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d2c1b0;">
+                     <content>
+                        <VBox fx:id="VboxSaturday" prefHeight="654.0" prefWidth="167.0" spacing="15.0" style="-fx-background-color: #d2c1b0;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+            <Line endX="1163.9998779296875" endY="-4.8000030517578125" layoutX="101.0" layoutY="41.0" startX="-90.0" />
+            <Label layoutX="249.0" layoutY="9.0" text="Monday">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="436.0" layoutY="6.0" text="Tuesday">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="601.0" layoutY="9.0" text="Wednesday">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="787.0" layoutY="9.0" text="Thursday">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="979.0" layoutY="9.0" text="Friday">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="1155.0" layoutY="9.0" text="Saturday">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <DatePicker fx:id="DTpickerBar" layoutX="18.0" layoutY="71.0" prefHeight="26.0" prefWidth="205.0" />
+      <Button fx:id="btnSearchDateWeek" layoutX="233.0" layoutY="69.0" mnemonicParsing="false" onAction="#CallFuncSearchWeek" style="-fx-background-color: #8f7557;" text="Search" />
+   </children>
+</AnchorPane>
